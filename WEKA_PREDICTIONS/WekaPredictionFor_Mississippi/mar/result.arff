@@ -1,0 +1,26 @@
+@relation Training_data_predicted
+
+@attribute disease {Tuberculosis,MycobacteriaInfection,Pertussis,Tetanus,Mumps,HepatitisB,influenzae,Meningococcal,HepatitisA,Salmonellosis,Shigellosis,Campylobacteriosis,E.coli,Animalbites,Lymedisease,Rocky,WestNilevirus}
+@attribute month1 numeric
+@attribute month2 numeric
+@attribute predictedmonth3 numeric
+@attribute month3 numeric
+
+@data
+Tuberculosis,6,7,6.23613,?
+MycobacteriaInfection,28,25,23.472259,?
+Pertussis,6,3,4.527739,?
+Tetanus,0,0,0,?
+Mumps,0,0,0,?
+HepatitisB,6,1,2.018492,?
+influenzae,1,2,2,?
+Meningococcal,1,0,0,?
+HepatitisA,1,0,0,?
+Salmonellosis,39,29,31.54623,?
+Shigellosis,17,9,10.782361,?
+Campylobacteriosis,7,9,9.76387,?
+E.coli,1,2,2,?
+Animalbites,1,0,0.254623,?
+Lymedisease,0,0,0,?
+Rocky,0,0,0,?
+WestNilevirus,0,1,1,?

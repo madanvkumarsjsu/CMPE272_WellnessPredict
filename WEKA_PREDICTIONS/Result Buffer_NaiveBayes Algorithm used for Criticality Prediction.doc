@@ -1,0 +1,78 @@
+=== Run information ===
+
+Scheme:weka.classifiers.bayes.NaiveBayesSimple 
+Relation:     Oregon_Jan
+Instances:    41
+Attributes:   5
+              disease
+              Jan_2010
+              Jan_2012
+              Jan_2013
+              criticality
+Test mode:evaluate on training data
+
+=== Classifier model (full training set) ===
+
+Naive Bayes (simple)
+
+Class YES: P(C) = 0.23255814
+
+Attribute disease
+ANIMALBITES	BOTULISM	BRUCELLOSIS	CAMPYLOBACTER	CRYPTOSPORIDIOSIS	CYCLOSPORIASIS	ENCEPHALITIS	GIARDIASIS	GROUPASTREP	GROUPBSTREP	HAEMOPHILUSINFLUENZAE	HANTAVIRUS	HEMOLYTIC	HEPATITISA	HEPATITISB	HEPATITISC	INFLUENZA	KAWASAKI	LEGIONELLOSIS	LEPROSY	LISTERIOSIS	MALARIA	MEASLES	MENINGITIS	MENINGOCOCCAL	MUMPS	PERTUSSIS	PLAGUE	RELAPSINGFEVER	ROCKY	SALMONELLOSIS	SHIGELLOSIS	STEC	STREP	TETANUS	TOXIC	TULAREMIA	TYPHOID	VARICELLA	WESTNILEVIRUS	YERSINIOSIS	
+0.04      	0.02      	0.02      	0.04      	0.02      	0.02      	0.02      	0.04      	0.02      	0.02      	0.02      	0.02      	0.02      	0.02      	0.04      	0.04      	0.02      	0.02      	0.02      	0.02      	0.02      	0.02      	0.02      	0.04      	0.02      	0.02      	0.04      	0.02      	0.02      	0.02      	0.04      	0.02      	0.04      	0.02      	0.02      	0.02      	0.02      	0.02      	0.02      	0.02      	0.02      	
+
+Attribute Jan_2010
+Mean: 89.66666667	Standard Deviation: 82.22530024
+
+Attribute Jan_2012
+Mean: 101.55555556	Standard Deviation: 76.61121183
+
+Attribute Jan_2013
+Mean: 85.55555556	Standard Deviation: 63.75560977
+
+
+
+Class NO: P(C) = 0.76744186
+
+Attribute disease
+ANIMALBITES	BOTULISM	BRUCELLOSIS	CAMPYLOBACTER	CRYPTOSPORIDIOSIS	CYCLOSPORIASIS	ENCEPHALITIS	GIARDIASIS	GROUPASTREP	GROUPBSTREP	HAEMOPHILUSINFLUENZAE	HANTAVIRUS	HEMOLYTIC	HEPATITISA	HEPATITISB	HEPATITISC	INFLUENZA	KAWASAKI	LEGIONELLOSIS	LEPROSY	LISTERIOSIS	MALARIA	MEASLES	MENINGITIS	MENINGOCOCCAL	MUMPS	PERTUSSIS	PLAGUE	RELAPSINGFEVER	ROCKY	SALMONELLOSIS	SHIGELLOSIS	STEC	STREP	TETANUS	TOXIC	TULAREMIA	TYPHOID	VARICELLA	WESTNILEVIRUS	YERSINIOSIS	
+0.01369863	0.02739726	0.02739726	0.01369863	0.02739726	0.02739726	0.02739726	0.01369863	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	0.01369863	0.01369863	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	0.01369863	0.02739726	0.02739726	0.01369863	0.02739726	0.02739726	0.02739726	0.01369863	0.02739726	0.01369863	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	0.02739726	
+
+Attribute Jan_2010
+Mean: 4.40625   	Standard Deviation: 7.40470371
+
+Attribute Jan_2012
+Mean: 4.71875   	Standard Deviation: 8.56185982
+
+Attribute Jan_2013
+Mean: 3.75      	Standard Deviation: 6.19052345
+
+
+
+Time taken to build model: 0 seconds
+
+=== Evaluation on training set ===
+=== Summary ===
+
+Correctly Classified Instances          40               97.561  %
+Incorrectly Classified Instances         1                2.439  %
+Kappa statistic                          0.9316
+Mean absolute error                      0.0257
+Root mean squared error                  0.1272
+Relative absolute error                  7.3542 %
+Root relative squared error             30.7221 %
+Total Number of Instances               41     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0.031      0.9       1         0.947      1        YES
+                 0.969     0          1         0.969     0.984      1        NO
+Weighted Avg.    0.976     0.007      0.978     0.976     0.976      1    
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+  9  0 |  a = YES
+  1 31 |  b = NO
+

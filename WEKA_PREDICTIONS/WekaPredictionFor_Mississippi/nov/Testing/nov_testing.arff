@@ -1,0 +1,27 @@
+@RELATION Oregon_Jan
+
+@ATTRIBUTE disease {'Tuberculosis','MycobacterialInfection','Pertussis','Tetanus','Mumps','HepatitisB','Influenza','Meningococcal','HepatitisA','Salmonellosis','Shigellosis','Campylobacteriosis','Ecoli','AnimalBites','Lyme','Rocky','WestNile',}
+
+@ATTRIBUTE Jan_2010 real
+@ATTRIBUTE Jan_2012 real
+@ATTRIBUTE Jan_2013 real
+
+@DATA
+Tuberculosis,6,4,?
+MycobacterialInfection,42,27,?
+Pertussis,1,8,?
+Tetanus,0,0,?
+Mumps,0,0,?
+HepatitisB,2,6,?
+Influenza,1,1,?
+Meningococcal,0,0,?
+HepatitisA,0,1,?
+Salmonellosis,57,61,?
+Shigellosis,26,21,?
+Campylobacteriosis,6,8,?
+Ecoli,2,3,?
+AnimalBites,0,1,?
+Lyme,0,0,?
+Rocky,0,0,?
+WestNile,0,7,?
+

@@ -1,0 +1,37 @@
+@relation Oregon_Jan_predicted_predicted
+
+@attribute disease {Botulism,Campylobacter,Cryptosporidiosis,Dengue,E.,Giardiasis,HUS,Haemophilus,Hantavirus,Hep,HepatitisA,HepatitisB,HepatitisC,HepatitisD,HepatitisE,Legionellosis,Listeriosis,Lyme,Malaria,Meningococcal,Mumps,Pertussis,Q,Rocky,Salmonella,Shigella,Vibrio,Yersinia}
+@attribute Jan_2010 numeric
+@attribute Jan_2012 numeric
+@attribute Jan_2013 numeric
+@attribute predictedCritical {YES,NO}
+@attribute Critical {YES,NO}
+
+@data
+Botulism,0,0,0,NO,?
+Campylobacter,74,56,55,YES,?
+Cryptosporidiosis,22,10,9,NO,?
+Dengue,0,0,0,NO,?
+E.,23,7,6,NO,?
+Giardiasis,29,32,32,YES,?
+HUS,5,1,0,NO,?
+Haemophilus,13,13,13,NO,?
+Hantavirus,0,0,0,NO,?
+Hep,0,2,2,NO,?
+HepatitisA,4,1,0,NO,?
+HepatitisB,32,45,45,YES,?
+HepatitisC,2,2,2,NO,?
+HepatitisD,436,386,385,YES,?
+Legionellosis,2,2,2,NO,?
+Listeriosis,2,0,0,NO,?
+Lyme,6,5,4,NO,?
+Malaria,0,0,0,NO,?
+Meningococcal,3,1,0,NO,?
+Mumps,0,1,1,NO,?
+Pertussis,66,39,38,YES,?
+Q,0,0,0,NO,?
+Rocky,0,0,39,YES,?
+Salmonella,37,39,4,YES,?
+Shigella,7,5,0,NO,?
+Vibrio,0,0,8,NO,?
+Yersinia,3,8,3,NO,?

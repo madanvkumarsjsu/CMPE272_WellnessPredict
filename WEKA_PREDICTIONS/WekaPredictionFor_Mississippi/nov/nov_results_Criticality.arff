@@ -1,0 +1,27 @@
+@relation Oregon_Jan_predicted
+
+@attribute disease {Tuberculosis,MycobacterialInfection,Pertussis,Tetanus,Mumps,HepatitisB,Influenza,Meningococcal,HepatitisA,Salmonellosis,Shigellosis,Campylobacteriosis,Ecoli,AnimalBites,Lyme,Rocky,WestNile}
+@attribute Jan_2010 numeric
+@attribute Jan_2012 numeric
+@attribute Jan_2013 numeric
+@attribute predictedcriticality {YES,NO}
+@attribute criticality {YES,NO}
+
+@data
+Tuberculosis,6,4,4,NO,?
+MycobacterialInfection,42,27,30,YES,?
+Pertussis,1,8,8,NO,?
+Tetanus,0,0,0,NO,?
+Mumps,0,0,0,NO,?
+HepatitisB,2,6,6,NO,?
+Influenza,1,1,1,NO,?
+Meningococcal,0,0,0,NO,?
+HepatitisA,0,1,1,NO,?
+Salmonellosis,57,61,55,YES,?
+Shigellosis,26,21,17,YES,?
+Campylobacteriosis,6,8,9,NO,?
+Ecoli,2,3,3,NO,?
+AnimalBites,0,1,1,NO,?
+Lyme,0,0,0,NO,?
+Rocky,0,0,0,NO,?
+WestNile,0,7,7,NO,?

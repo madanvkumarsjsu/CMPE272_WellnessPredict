@@ -1,0 +1,36 @@
+@relation Oregon_Dec_train
+
+@attribute disease {'Botulism','Campylobacter','Cryptosporidiosis','Dengue','E.','Giardiasis','HUS','Haemophilus','Hantavirus','Hep','HepatitisA','HepatitisB','HepatitisC','HepatitisD','HepatitisE','Legionellosis','Listeriosis','Lyme','Malaria','Meningococcal','Mumps','Pertussis','Q','Rocky','Salmonella','Shigella','Vibrio','Yersinia'}
+@attribute 2010 numeric
+@attribute 2012 numeric
+@attribute 2013 numeric
+@attribute Critical {'Yes','No'}
+
+@data
+Botulism,0,0,0,No,17.22222222
+Campylobacter,55,40,35,Yes,17.22222
+Cryptosporidiosis,12,11,11,No,17.22222
+Dengue,1,0,0,No,17.22222
+E.,9,7,5,No,17.22222
+Giardiasis,28,34,19,Yes,17.22222
+HUS,0,0,0,No,17.22222
+Haemophilus,5,5,4,No,17.22222
+Hantavirus,0,0,0,No,17.22222
+Hep,427,4,0,No,17.22222
+HepatitisA,1,4,3,No,17.22222
+HepatitisB,4,33,30,Yes,17.22222
+HepatitisC,28,1,1,No,17.22222
+HepatitisD,2,317,303,Yes,17.22222
+Legionellosis,1,1,1,No,17.22222
+Listeriosis,2,0,2,No,17.22222
+Lyme,0,5,4,No,17.22222
+Malaria,0,0,0,No,17.22222
+Meningococcal,3,1,2,No,17.22222
+Mumps,0,1,0,No,17.22222
+Pertussis,25,22,22,Yes,17.22222
+Q,0,0,2,No,17.22222
+Rocky,0,0,0,No,17.22222
+Salmonella,0,32,15,No,17.22222
+Shigella,17,6,4,No,17.22222
+Vibrio,1,0,0,No,17.22222
+Yersinia,0,1,2,No,17.22222
