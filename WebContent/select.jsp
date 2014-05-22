@@ -14,59 +14,54 @@ alStates = utilObj.getStates();
 if (alStates == null) {
 	alStates = new ArrayList<State>();
 }
-int stateId = 0;
-if(request.getParameter("sel1") != null){
-	stateId = Integer.parseInt(request.getParameter("sel1"));	
-}
+int stateId = Integer.parseInt(request.getParameter("sel1"));
+//****
 if(stateId == 0){
 	stateId = 1;
+} 
+String stateNameChosen = "";
+for(int j=0;j<alStates.size();j++)
+{
+	if ((alStates.get(j)).getiStateId()==stateId)
+		stateNameChosen = (alStates.get(j)).getStrStateName();
+		
 }
+
+String[] monthsSmall={"january","february","march","april","may","june","july","august","september","october","november","december"};
+
+String[] monthsCapital={"January","February","March","April","May","June","July","August","September","October","November","December"};
+
+
+
+System.out.println(monthsSmall[9]);
+System.out.println(monthsCapital[11]);
+
+System.out.println(stateNameChosen);
+//******
 String strMonth = (String)request.getParameter("sel");
 System.out.println(stateId+" "+strMonth);
-int monthNum = 2;
 if(strMonth == null){
 	strMonth = "january";
 }
-if("january".equalsIgnoreCase(strMonth)){
-	monthNum = 1;
+String firstLetterCap = Character.toUpperCase(strMonth.charAt(0)) + strMonth.substring(1);
+System.out.println("cap"+firstLetterCap);
+int monthNum=0 ;
+
+int[] monthNumber={1,2,3,4,5,6,7,8,9,10,11,12};
+
+for(int k=0;k<monthsSmall.length;k++)
+{
+	if((monthsSmall[k]).equals(strMonth))
+		monthNum = monthNumber[k];
 }
-else if("february".equalsIgnoreCase(strMonth)){
-	monthNum = 2;
-}
-else if("march".equalsIgnoreCase(strMonth)){
-	monthNum = 3;
-}
-else if("april".equalsIgnoreCase(strMonth)){
-	monthNum = 4;
-}
-else if("may".equalsIgnoreCase(strMonth)){
-	monthNum = 5;
-}
-else if("june".equalsIgnoreCase(strMonth)){
-	monthNum = 6;
-}
-else if("july".equalsIgnoreCase(strMonth)){
-	monthNum = 7;
-}
-else if("august".equalsIgnoreCase(strMonth)){
-	monthNum = 8;
-}
-else if("september".equalsIgnoreCase(strMonth)){
-	monthNum = 9;
-}
-else if("october".equalsIgnoreCase(strMonth)){
-	monthNum = 10;
-}
-else if("november".equalsIgnoreCase(strMonth)){
-	monthNum = 11;
-}
-else if("december".equalsIgnoreCase(strMonth)){
-	monthNum = 12;
-}
+
+System.out.println("Chosen month is :"+ monthNum);
+
 ArrayList diseaseList = new ArrayList();
 ArrayList diseaseCountList = new ArrayList();
 String month = strMonth;
 int stateid= stateId;
+
 %>
 <%! public static Connection connectToDatabase(){
 	Connection connect = null;
@@ -102,8 +97,8 @@ int stateid= stateId;
 		while (rs.next()) {
 			disCount.add(rs.getInt("month"));
 			disName.add(rs.getString("disease"));
-			//System.out.println(disCount);
-			//System.out.println(disName);
+			System.out.println(disCount);
+			System.out.println(disName);
 		}
 	} catch (Exception e) {
 		System.out.println("Error in execute query::"+e.getMessage());
@@ -166,81 +161,56 @@ public static String getFormattedString(ArrayList name, ArrayList count)
 <script type='text/javascript'>
 	//<![CDATA[ 
  $(function() {
-		<% consolidateForSingleDisease(month,1,diseaseList , diseaseCountList,monthNum,true); %>
+		<% consolidateForSingleDisease(month,stateId,diseaseList , diseaseCountList,monthNum,true); %>
+		
+		//For non-critical, use
+		<%--  <% consolidateForSingleDisease(month,stateId,diseaseList , diseaseCountList,monthNum,false); %> --%>
+	
 	var values = <%= getFormattedString(diseaseList,diseaseCountList)%>;
 	//alert (values);
 	RenderPieChart('container', values);     
 
+	function RenderPieChart(elementId, dataList) {
+		//alert("test");
+        new Highcharts.Chart({
+            chart: {
+                renderTo: elementId,
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            }, title: {
+                text: 'Critical Diseases in 2014 for the chosen month'
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
+                }
+            },
+            plotOptions: {
+                pie: {allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function () {
+                            return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
+                        }
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: dataList
+            }]
+        });
+    };
+		
 	
 	}); 
- function RenderPieChart(elementId, dataList) {
-		//alert("test");
-     new Highcharts.Chart({
-         chart: {
-             renderTo: elementId,
-             plotBackgroundColor: null,
-             plotBorderWidth: null,
-             plotShadow: false
-         }, title: {
-             text: 'Critical Diseases in 2014 for the chosen month'
-         },
-         tooltip: {
-             formatter: function () {
-                 return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
-             }
-         },
-         plotOptions: {
-             pie: {allowPointSelect: true,
-                 cursor: 'pointer',
-                 dataLabels: {
-                     enabled: true,
-                     color: '#000000',
-                     connectorColor: '#000000',
-                     formatter: function () {
-                         return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
-                     }
-                 },
-                 showInLegend: true
-             }
-         },
-         series: [{
-             type: 'pie',
-             name: 'Browser share',
-             data: dataList
-         }]
-     });
- };
- function handleEvent()
- {    
-         var test = document.getElementsByName("option");
-     
-         for(var elem in test)
-         {
-             if(test[elem].checked)
-             {
-                 alert(test[elem].value);  // got the element which is checked      
-                 if(test[elem].value=="Critical")
-                     {
-                	 alert("1");
-                	 <% consolidateForSingleDisease(month,1,diseaseList , diseaseCountList,monthNum,true); %>
-             		
-             	var values = <%= getFormattedString(diseaseList,diseaseCountList)%>;
-             	//alert (values);
-             	RenderPieChart('container', values);
-                     }
-                 else if(test[elem].value=="All Diseases")
-					{
-                	 alert("2");
-             		//For non-critical, use
-             		 <% consolidateForSingleDisease(month,1,diseaseList , diseaseCountList,monthNum,false); %>
-             	
-             	var values = <%= getFormattedString(diseaseList,diseaseCountList)%>;
-             	//alert (values);
-             	RenderPieChart('container', values);
-					}
-             }
-         }
- } 
+	           
 	//]]>
 </script>
 </head>
@@ -310,28 +280,43 @@ public static String getFormattedString(ArrayList name, ArrayList count)
 							<div class="span12">
 								<form method="post" action="select.jsp">
 									Pick a Month of Travel <select name="sel">
-										<option value="january">January</option>
-										<option value="february">February</option>
-										<option value="march">March</option>
-										<option value="april">April</option>
-										<option value="may">May</option>
-										<option value="june">June</option>
-										<option value="july">July</option>
-										<option value="august">August</option>
-										<option value="september">September</option>
-										<option value="october">October</option>
-										<option value="november">November</option>
-										<option value="december">December</option>
+									<%
+										for (int j = 0; j < monthsSmall.length; j++) 
+										{
+											if ((monthsSmall[j].equals(strMonth))) 
+											{
+												
+									%>
+									<option value="<%=monthsSmall[j]%>" Selected><%=monthsCapital[j]%></option>								
+									<%
+											} else {
+									
+									%>
+										<option value="<%=monthsSmall[j]%>"><%=monthsCapital[j]%></option>
+									<%
+									} }
+									%>	
+										
 									</select> &nbsp;&nbsp;&nbsp;&nbsp; Pick a Place of Travel <select
 										name="sel1">
-										<option value="select">Please Select a State</option>
-										<%
-											for (int i = 0; i < alStates.size(); i++) {
-										%>
+										
+									<%
+										for (int i = 0; i < alStates.size(); i++) 
+										{
+											if ((alStates.get(i)).getiStateId()==stateId)
+											{
+												
+									%>
+									<option value="<%=alStates.get(i).getiStateId()%>" Selected><%=alStates.get(i).getStrStateName()%></option>								
+									<%
+											} else {
+									
+									%>
 										<option value="<%=alStates.get(i).getiStateId()%>"><%=alStates.get(i).getStrStateName()%></option>
-										<%
-											}
-										%>
+									<%
+									} }
+									%>
+									
 									</select> <input class="btn btn-primary" type="Submit" value="Submit">
 								</form>
 					</section>
@@ -341,12 +326,10 @@ public static String getFormattedString(ArrayList name, ArrayList count)
 						<div align="center">
 							<br>
 							<form>
-								<input type="radio" name="option" value="Critical"
-									onchange="handleEvent()" checked="true">Critical
-								&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="option"
-									value="All Diseases" onchange="handleEvent()">All
-								Diseases
-							</form>
+										<input type="radio" name="option" value="Critical">Critical
+										&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="option"
+											value="All Diseases">All Diseases
+									</form>
 						</div>
 					</form>
 </body>
